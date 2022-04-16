@@ -2,22 +2,28 @@ const blogTitleRef = document.querySelector("#blog-title");
 const blogTextRef = document.querySelector("#blog-text");
 const submitBtnRef = document.querySelector("#submit-btn");
 const formRef = document.querySelector("form");
-let recentBlogPostsRef = document.querySelector("#recent-blog-posts")
+const recentBlogPostsRef = document.querySelector("#recent-blog-posts")
+let posts = []
 
-async function getBlogPosts(){
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const data = await response.json()
-    const fivePosts = data.slice(0,5)
-    return fivePosts.forEach(post => {
+function renderHTML (){
+    posts.forEach( post => {
         let html = 
         `
         <h4>${post.title}</h4>
         <p>${post.body}</h4>
 
-        `
-        return recentBlogPostsRef.innerHTML += html
+        `        
+    return recentBlogPostsRef.innerHTML += html  
     })
+    
 }
+async function getBlogPosts(){
+    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const data = await response.json()
+    posts = data.slice(0,5)
+    renderHTML()
+}
+
 formRef.addEventListener("submit",(e)=> {
     e.preventDefault()
     let newBlogPost = {
@@ -36,3 +42,5 @@ formRef.addEventListener("submit",(e)=> {
     
 })
 getBlogPosts()
+renderHTML()
+// posts.unshift(html)
