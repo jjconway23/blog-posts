@@ -18,4 +18,7 @@ async function getBlogPosts(){
         return recentBlogPostsRef.innerHTML += html
     })
 }
+formRef.addEventListener("submit",(e)=> {
+    e.preventDefault()
+})
 getBlogPosts()
