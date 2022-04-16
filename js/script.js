@@ -7,6 +7,15 @@ let recentBlogPostsRef = document.querySelector("#recent-blog-posts")
 async function getBlogPosts(){
     const response = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await response.json()
-    console.log(data)
+    const fivePosts = data.slice(0,5)
+    return fivePosts.forEach(post => {
+        let html = 
+        `
+        <h4>${post.title}</h4>
+        <p>${post.title}</h4>
+
+        `
+        return recentBlogPostsRef.innerHTML += html
+    })
 }
 getBlogPosts()
