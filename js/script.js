@@ -4,7 +4,10 @@ const submitBtnRef = document.querySelector("#submit-btn");
 const formRef = document.querySelector("form");
 const recentBlogPostsRef = document.querySelector("#recent-blog-posts")
 let posts = []
-
+/**
+ * creates h4 a p tag for the;
+ * post title and post body
+ */
 function renderHTML (){
     recentBlogPostsRef.innerHTML =""
     posts.forEach( post => {
@@ -18,6 +21,10 @@ function renderHTML (){
     })
     
 }
+/**
+ * Fetch posts from api
+ * add error handling logs error to console
+ */
 async function getBlogPosts(){
     try{
         const response = await fetch("https://jsonplaceholder.typicode.com/posts");
@@ -33,7 +40,11 @@ async function getBlogPosts(){
         console.log("Function complete")
     }
 }
-
+/**
+ * form validation, does not submit form unless;
+ *  text and body are filled in.
+ * pushes new blog post to array and rendersHTML again
+ */
 formRef.addEventListener("submit",(e)=> {
     e.preventDefault()
     
