@@ -27,13 +27,19 @@ async function getBlogPosts(){
 
 formRef.addEventListener("submit",(e)=> {
     e.preventDefault()
-    let newBlogPost = {
-        title: blogTitleRef.value,
-        body: blogTextRef.value
+    
+    if(!blogTitleRef.value || !blogTextRef.value){
+        alert("Must input a title and text")
+    } else{
+        let newBlogPost = {
+            title: blogTitleRef.value,
+            body: blogTextRef.value
+        }
+        posts.unshift(newBlogPost)
+        formRef.reset()
+        return renderHTML() 
     }
-    posts.unshift(newBlogPost)
-    formRef.reset()
-    return renderHTML()
+    
 })
 getBlogPosts()
-renderHTML()
+
