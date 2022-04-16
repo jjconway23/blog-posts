@@ -1,0 +1,23 @@
+html{
+    font-size: 62.5%;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* Global Styles */
+.flex{
+    display: flex;
+}
+.flex-direction{
+    flex-direction: column;
+}
+/*  */
+body{
+    width: 70%;
+    align-items: center;
+    margin: 0 auto;
+    padding: 3rem;
+    font-size: 1.6rem;
+}
