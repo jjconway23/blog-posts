@@ -19,10 +19,19 @@ function renderHTML (){
     
 }
 async function getBlogPosts(){
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const data = await response.json()
-    posts = data.slice(0,5)
-    renderHTML()
+    try{
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts");
+        const data = await response.json()
+        posts = data.slice(0,5)
+        renderHTML()
+    }
+    catch(err){
+        console.log("Error!")
+        console.log(err)
+    }
+    finally{
+        console.log("Function complete")
+    }
 }
 
 formRef.addEventListener("submit",(e)=> {
