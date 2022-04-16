@@ -12,7 +12,7 @@ async function getBlogPosts(){
         let html = 
         `
         <h4>${post.title}</h4>
-        <p>${post.title}</h4>
+        <p>${post.body}</h4>
 
         `
         return recentBlogPostsRef.innerHTML += html
@@ -20,5 +20,19 @@ async function getBlogPosts(){
 }
 formRef.addEventListener("submit",(e)=> {
     e.preventDefault()
+    let newBlogPost = {
+        title: blogTextRef.value,
+        text: blogTextRef.value
+    }
+    let html = 
+        `
+        <h4>${newBlogPost.title}</h4>
+        <p>${newBlogPost.text}</h4>
+
+        `
+
+    formRef.reset()
+    return recentBlogPostsRef.innerHTML += html
+    
 })
 getBlogPosts()
