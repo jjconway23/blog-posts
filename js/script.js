@@ -7,13 +7,14 @@ let posts = []
 
 function renderHTML (){
     posts.forEach( post => {
-        let html = 
+        let html = ""
+        html+=
         `
         <h4>${post.title}</h4>
         <p>${post.body}</h4>
 
         `        
-    return recentBlogPostsRef.innerHTML += html  
+    return recentBlogPostsRef.innerHTML = html  
     })
     
 }
@@ -30,15 +31,12 @@ formRef.addEventListener("submit",(e)=> {
         title: blogTextRef.value,
         text: blogTextRef.value
     }
-    let html = 
-        `
-        <h4>${newBlogPost.title}</h4>
-        <p>${newBlogPost.text}</h4>
-
-        `
-
+    posts.unshift(newBlogPost)
     formRef.reset()
-    return recentBlogPostsRef.innerHTML += html
+    return renderHTML()
+    
+    
+    // return recentBlogPostsRef.innerHTML += html
     
 })
 getBlogPosts()
