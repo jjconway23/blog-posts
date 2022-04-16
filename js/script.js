@@ -6,15 +6,15 @@ const recentBlogPostsRef = document.querySelector("#recent-blog-posts")
 let posts = []
 
 function renderHTML (){
+    recentBlogPostsRef.innerHTML =""
     posts.forEach( post => {
-        let html = ""
-        html+=
+        let html =
         `
         <h4>${post.title}</h4>
         <p>${post.body}</h4>
 
         `        
-    return recentBlogPostsRef.innerHTML = html  
+    return recentBlogPostsRef.innerHTML += html  
     })
     
 }
@@ -28,17 +28,12 @@ async function getBlogPosts(){
 formRef.addEventListener("submit",(e)=> {
     e.preventDefault()
     let newBlogPost = {
-        title: blogTextRef.value,
-        text: blogTextRef.value
+        title: blogTitleRef.value,
+        body: blogTextRef.value
     }
     posts.unshift(newBlogPost)
     formRef.reset()
     return renderHTML()
-    
-    
-    // return recentBlogPostsRef.innerHTML += html
-    
 })
 getBlogPosts()
 renderHTML()
-// posts.unshift(html)
