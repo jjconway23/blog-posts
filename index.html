@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Blog Posts</title>
+</head>
+<div class="container">
+    <body class="flex flex-direction">
+        <header>
+            <h1>Blog Posts</h1>
+        </header>
+        <main >
+            
+            <form class="flex flex-direction">
+                <div class="form-group">
+                    <label for="blog-title">Blog Title</label>
+                    <input class="form-control" type="text" name="blog-title" id="blog-title" placeholder="Add a Blog title!">
+                </div>
+                <div class="form-group">
+                    <label for="blog-text">Blog Text</label>
+                    <textarea class="form-control" name="blog-text" id="blog-text" cols="30" rows="10"></textarea>
+                </div>
+                <button class="btn btn-primary" id= "submit-btn" type="submit">Add Post!</button>
+            </form>
+            
+            <div id="recent-blog-posts"></div>
+        </main>
+            
+        
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</div>
+</html>
